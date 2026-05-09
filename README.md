@@ -46,8 +46,8 @@ twitter-sentiment-project/
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git)
-cd YOUR_REPO_NAME
+git clone [https://github.com/Vinimesh-Shakya/Sentiment-Analysis.git](https://github.com/Vinimesh-Shakya/Sentiment-Analysis.git)
+cd Sentiment-Analysis
 ```
 
 ### 2. Install Dependencies
