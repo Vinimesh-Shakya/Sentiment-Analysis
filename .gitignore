@@ -1,0 +1,28 @@
+# Virtual Environments
+venv/
+env/
+.env
+
+# Model Weights & Large Files
+bert_sentiment/
+*.pt
+*.pth
+*.bin
+*.safetensors
+
+# Compressed Files
+*.zip
+*.tar.gz
+*.rar
+
+# Datasets
+*.csv
+Twitte/
+
+# Python Cache
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# OS Generated Files
+.DS_Store

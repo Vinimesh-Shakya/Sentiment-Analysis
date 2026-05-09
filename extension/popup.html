@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Twitter Sentiment Analyzer</title>
+
+  <!-- Google Font: Inter -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="popup.css" />
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       HEADER
+  ══════════════════════════════════════════════════════════════════ -->
+  <header class="header">
+    <div class="header-logo">
+      <span class="logo-icon">🐦</span>
+      <div>
+        <h1 class="header-title">Sentiment Analyzer</h1>
+        <p class="header-sub">BERT · 97.22% Accuracy</p>
+      </div>
+    </div>
+    <!-- Live indicator dot -->
+    <div class="live-badge">
+      <span class="live-dot"></span>
+      <span>LIVE</span>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       MAIN CONTENT
+  ══════════════════════════════════════════════════════════════════ -->
+  <main class="main">
+
+    <!-- ── LOADING STATE ─────────────────────────────────────────── -->
+    <div id="state-loading" class="state" hidden>
+      <div class="skeleton-card">
+        <div class="skeleton-line short"></div>
+        <div class="skeleton-line long"></div>
+        <div class="skeleton-line medium"></div>
+      </div>
+      <div class="spinner-wrapper">
+        <div class="spinner"></div>
+        <p class="spinner-label">Analyzing tweet…</p>
+      </div>
+    </div>
+
+    <!-- ── EMPTY / ERROR STATE ───────────────────────────────────── -->
+    <div id="state-error" class="state" hidden>
+      <div class="error-card glass-card">
+        <div class="error-icon">🔍</div>
+        <h2 class="error-title">No Tweet Detected</h2>
+        <p id="error-message" class="error-body">
+          Scroll until a tweet is visible on screen, then click Analyze.
+        </p>
+      </div>
+    </div>
+
+    <!-- ── IDLE STATE (initial) ──────────────────────────────────── -->
+    <div id="state-idle" class="state">
+      <div class="idle-card glass-card">
+        <span class="idle-icon">✨</span>
+        <p class="idle-text">
+          Navigate to <strong>Twitter / X</strong> and click
+          <strong>Analyze Tweet</strong> below.
+        </p>
+      </div>
+    </div>
+
+    <!-- ── RESULT STATE ──────────────────────────────────────────── -->
+    <div id="state-result" class="state" hidden>
+
+      <!-- Tweet preview strip -->
+      <div class="preview-card glass-card">
+        <span class="preview-label">📌 Analyzed Tweet</span>
+        <p id="tweet-preview" class="preview-text"></p>
+      </div>
+
+      <!-- Result card -->
+      <div class="result-card glass-card">
+
+        <!-- Left: label + confidence text -->
+        <div class="result-info">
+          <p class="result-label-caption">Sentiment</p>
+          <div id="sentiment-pill" class="pill"></div>
+
+          <p class="result-label-caption" style="margin-top: 14px;">Confidence</p>
+          <p id="confidence-value" class="confidence-value"></p>
+
+          <div class="prob-bars" id="prob-bars">
+            <!-- Injected by popup.js -->
+          </div>
+        </div>
+
+        <!-- Right: animated pie chart -->
+        <div class="chart-wrapper">
+          <div class="pie-ring" id="pie-ring">
+            <div class="pie-inner">
+              <span id="pie-label" class="pie-percent"></span>
+            </div>
+          </div>
+          <p class="chart-caption">Class<br/>confidence</p>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       FOOTER ACTIONS
+  ══════════════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <button id="btn-analyze" class="btn btn-primary">
+      🚀 Analyze Tweet
+    </button>
+    <button id="btn-next" class="btn btn-secondary" hidden>
+      🔄 Analyze Next
+    </button>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "Twitter Sentiment Analyzer 🐦",
+  "version": "1.0.0",
+  "description": "One-click BERT-powered sentiment analysis for tweets — Antigravity Edition.",
+
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+
+  "host_permissions": [
+    "http://localhost:8000/*",
+    "*://*.twitter.com/*",
+    "*://*.x.com/*"
+  ],
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16":  "icons/icon16.png",
+      "48":  "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Analyze Tweet Sentiment"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.twitter.com/*",
+        "*://*.x.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
