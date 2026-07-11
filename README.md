@@ -8,19 +8,6 @@ A real-time sentiment analysis system built for X (formerly Twitter). This proje
 
 It includes a standalone **Streamlit Dashboard** (featuring an "Antigravity" aesthetic) and a **Chrome Extension** for instant, 1-click on-screen sentiment analysis directly in the browser.
 
----
-
-## 👥 Team Members
-* **Mohd. Kaif** [MCS25017]
-* **Divyansh Gehlot** [MCS25030]
-* **Sandeep Choudhary** [MCS25034]
-* **Vinimesh Shakya** [MCS25042]
-* **Ashish Vishwakarma** [MCS25053]
-
-*NLP Project · IIIT Lucknow · 2026*
-
----
-
 ## 🏗️ Project Architecture
 
 ```text
